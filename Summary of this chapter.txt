@@ -1,0 +1,5 @@
+Lecture 1: Inception:-
+- We created our first hello world program in react including cdn links(React and ReactDom) in script. [Not using npx create-raect-app]
+
+Lecture 2: Ingniting our app:-
+- We ignited our app using bundlers(parcel), npm. [Removed cdn links and also we are not using create-react-app]
