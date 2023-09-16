@@ -1,0 +1,29 @@
+{
+  "name": "namaste-react-live",
+  "version": "1.0.0",
+  "description": "This is a React course from Namaste React by Akshay Saini",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajitkumar20/Namaste-React.git"
+  },
+  "author": "Ajit Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajitkumar20/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/ajitkumar20/Namaste-React#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "browsersList": [
+    "last 2 chrome versions"
+  ]
+}
