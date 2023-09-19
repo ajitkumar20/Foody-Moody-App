@@ -1,3 +1,38 @@
-#container {
-    background-color: cyan;
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.nav-items > ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+}
+
+.logo {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.card {
+    width: 230px;
+    /* height: 385px; */
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.card > img {
+    width: 100%;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap ;
 }
