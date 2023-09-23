@@ -1,4 +1,10 @@
 import React from "react";
+import { useState } from "react";
+
+const loggedInUser = () => {
+    //API call to check authentication of User
+    return false;
+}
 
 // Functional Component
 const Title = () => (
@@ -8,6 +14,9 @@ const Title = () => (
 );
 
 const Header = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     return (
         <div className="header">
             <Title />
@@ -19,8 +28,9 @@ const Header = () => {
                     <li>Cart</li>
                 </ul>
             </div>
+            {isLoggedIn ? <button onClick={() => setIsLoggedIn(false)}>Logout</button> : <button onClick={() => setIsLoggedIn(true)}>Login</button>}
         </div>
     );
-  };
+};
 
 export default Header;
