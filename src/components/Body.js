@@ -41,12 +41,13 @@ const Body = () => {
     //If restaurants has data => show actual data UI
     return (allRestaurants?.length === 0) ? <Shimmer /> : (
         <>
-            <div className="search-container">
-                <input type="text" className="search-input" placeholder="search" value={searchInput} onChange={(e) => {
+            <div className="search-container p-2 bg-pink-100 my-5">
+
+                <input type="text" className="p-2 m-2 rounded-md focus:bg-gray-100" placeholder="search" value={searchInput} onChange={(e) => {
                     setSearchInput(e.target.value)
-                }}>
-                </input>
-                <button className="search-btn" onClick={() => {
+                }}></input>
+
+                <button className="p-2 m-2 bg-purple-600 hover:bg-purple-900 text-white rounded-md" onClick={() => {
                     //need to filter teh data
                     const data = filterData(searchInput, allRestaurants);
                     //update the state - restaurants
@@ -54,7 +55,7 @@ const Body = () => {
                 }}>search</button>
 
             </div>
-            <div className="restaurant-list">
+            <div className="restaurant-list flex flex-wrap justify-between rounded-md">
                 {
                     filteredRestaurants.map((restaurant) => {
                         return <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}><RestaurantCard {...restaurant.info} /></Link>

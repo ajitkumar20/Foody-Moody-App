@@ -19,7 +19,7 @@ const RestaurantMenu = () => {
                 <img src={IMG_CDN_URL + restaurant.data?.cards[0]?.card?.card?.info?.cloudinaryImageId} />
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.areaName}</h3>
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.city}</h3>
-                <h3>{restaurant.data?.cards[0]?.card?.card?.info?.avgRating} Stars</h3>
+                <h3>{restaurant.data?.cards[0]?.card?.card?.info?.avgRating} {"⭐"}</h3>
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
             </div>
             <div>
