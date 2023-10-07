@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnilne";
+import userContext from "../utils/userContext";
 
 // SPA - Single Page Application
 // Routing - 1.Client Side Routing (Using this), 2.Server Side Routing
@@ -17,6 +17,8 @@ const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const isOnline = useOnline();
 
+    const {user} = useContext(userContext);
+
     return (
         <div className="flex justify-between bg-pink-100 shadow-lg">
             <Title />
@@ -30,6 +32,7 @@ const Header = () => {
                 </ul>
             </div>
             <h1>{isOnline ? "✅" : "🔴"}</h1>
+            <span className="p-10 font-bold">{user.name}</span>
             {isLoggedIn ? <button className="h-[50px] w-[65px] p-2 m-2 bg-purple-600 hover:bg-purple-900 text-white rounded-md" onClick={() => setIsLoggedIn(false)}>Logout</button> : <button className="h-[50px] w-[65px] p-2 m-2 bg-purple-600 hover:bg-purple-900 text-white rounded-md" onClick={() => setIsLoggedIn(true)}>Login</button>}
         </div>
     );

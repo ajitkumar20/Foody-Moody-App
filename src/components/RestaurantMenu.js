@@ -12,19 +12,19 @@ const RestaurantMenu = () => {
     const restaurant = useRestaurant(resId);
 
     return (!restaurant) ? <Shimmer /> : (
-        <div className="menu">
-            <div>
-                <h1>Restaurant id: {resId}</h1>
-                <h2>{restaurant.data?.cards[0]?.card?.card?.info?.name}</h2>
-                <img src={IMG_CDN_URL + restaurant.data?.cards[0]?.card?.card?.info?.cloudinaryImageId} />
+        <div className="menu flex">
+            <div className="m-2 p-2">
+                <h2 className="text-3xl font-bold font-serif text-gray-900">{restaurant.data?.cards[0]?.card?.card?.info?.name}</h2>
+                <h1 className="text-xl font-medium">Restaurant id: {resId}</h1>
+                <img className="w-96" src={IMG_CDN_URL + restaurant.data?.cards[0]?.card?.card?.info?.cloudinaryImageId} />
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.areaName}</h3>
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.city}</h3>
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.avgRating} {"⭐"}</h3>
                 <h3>{restaurant.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
             </div>
-            <div>
-                <h1>Menu</h1>
-                <ul>
+            <div className="m-2 p-2">
+                <h1 className="text-xl font-bold">Menu</h1>
+                <ul className="list-disc list-inside">
                     <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[0]?.card?.info?.name}</li>
                     <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[1]?.card?.info?.name}</li>
                     <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[2]?.card?.info?.name}</li>

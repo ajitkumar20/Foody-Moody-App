@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -11,6 +11,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 // import Instamart from "./components/Instamart";
+import userContext from "./utils/userContext";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
@@ -23,12 +24,18 @@ const About = lazy(() => import("./components/About"));
 
 
 const AppLayout = () => {
+
+  const [user, setUser] = useState({
+    name: "Ajit Singh",
+    email: "ajsingh1622@gmail.com",
+  })
+
   return (
-    <>
+    <userContext.Provider value={{user: user, setUser: setUser,}}>
       <Header />
       <Outlet/>
       <Footer />
-    </>
+    </userContext.Provider>
   );
 };
 
