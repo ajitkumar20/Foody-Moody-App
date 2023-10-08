@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
 import Shimmer from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
     // How to read a dynamic URL params
@@ -10,6 +12,12 @@ const RestaurantMenu = () => {
     // const {id} = params; //destructuring
 
     const restaurant = useRestaurant(resId);
+
+    const dispatch = useDispatch();
+
+    const addFoodItem = (item) => {
+        dispatch(addItem(item));
+    };
 
     return (!restaurant) ? <Shimmer /> : (
         <div className="menu flex">
@@ -25,17 +33,29 @@ const RestaurantMenu = () => {
             <div className="m-2 p-2">
                 <h1 className="text-xl font-bold">Menu</h1>
                 <ul className="list-disc list-inside">
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[0]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[1]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[2]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[3]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[4]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[5]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[6]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[7]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[8]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[9]?.card?.info?.name}</li>
-                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[10]?.card?.info?.name}</li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[0]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[0]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[1]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[1]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[2]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[2]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[3]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[3]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[4]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[4]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[5]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[5]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[6]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[6]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[7]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[7]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[8]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[8]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[9]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[9]?.card?.info)}>Add</button></li>
+
+                    <li>{restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[10]?.card?.info?.name}<button className="p-1 m-1 bg-green-200" onClick={() => addFoodItem(restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards[10]?.card?.info)}>Add</button></li>
+
                 </ul>
             </div>
         </div>

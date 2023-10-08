@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnilne";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 // SPA - Single Page Application
 // Routing - 1.Client Side Routing (Using this), 2.Server Side Routing
@@ -19,6 +20,9 @@ const Header = () => {
 
     const {user} = useContext(userContext);
 
+    const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
+
     return (
         <div className="flex justify-between bg-pink-100 shadow-lg">
             <Title />
@@ -27,8 +31,8 @@ const Header = () => {
                     <li className="px-2"><Link to="/">Home</Link></li>
                     <li className="px-2"><Link to="/about">About</Link></li>
                     <li className="px-2"><Link to="/contact">Contact</Link></li>
-                    <li className="px-2">Cart</li>
                     <li className="px-2"><Link to="/instamart">Instamart</Link></li>
+                    <li className="px-2"><Link to="/cart">Cart - {cartItems.length} Items</Link></li>
                 </ul>
             </div>
             <h1>{isOnline ? "✅" : "🔴"}</h1>

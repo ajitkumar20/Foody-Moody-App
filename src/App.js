@@ -12,6 +12,9 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 // import Instamart from "./components/Instamart";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
@@ -31,50 +34,56 @@ const AppLayout = () => {
   })
 
   return (
-    <userContext.Provider value={{user: user, setUser: setUser,}}>
-      <Header />
-      <Outlet/>
-      <Footer />
-    </userContext.Provider>
+    <Provider store = {store}>
+      <userContext.Provider value={{ user: user, setUser: setUser, }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </userContext.Provider>
+    </Provider>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout/>,
-    errorElement: <Error/>,
+    element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
-        element: <Body/>,
+        element: <Body />,
       },
       {
         path: "/about",
         element: <Suspense>
-          <About/>
+          <About />
         </Suspense>,
         children: [
           {
             path: "profile",
-            element: <Profile/>,
+            element: <Profile />,
           }
         ]
       },
       {
         path: "/contact",
-        element: <Contact/>,
+        element: <Contact />,
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu/>,
+        element: <RestaurantMenu />,
       },
       {
         path: "/instamart",
         element:
-        <Suspense fallback = {<Shimmer/>}>
-          <Instamart/>
-        </Suspense>,
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>,
+      },
+      {
+        path: "/cart",
+        element: <Cart/>,
       },
     ]
   },
