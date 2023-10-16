@@ -45,11 +45,11 @@ const Body = () => {
         <>
             <div className="search-container p-2 bg-pink-100 my-5">
 
-                <input type="text" className="p-2 m-2 rounded-md focus:bg-gray-100" placeholder="search" value={searchInput} onChange={(e) => {
+                <input data-testid="search-input" type="text" className="p-2 m-2 rounded-md focus:bg-gray-100" placeholder="search" value={searchInput} onChange={(e) => {
                     setSearchInput(e.target.value)
                 }}></input>
 
-                <button className="p-2 m-2 bg-purple-600 hover:bg-purple-900 text-white rounded-md" onClick={() => {
+                <button data-testid="search-btn" className="p-2 m-2 bg-purple-600 hover:bg-purple-900 text-white rounded-md" onClick={() => {
                     //need to filter teh data
                     const data = filterData(searchInput, allRestaurants);
                     //update the state - restaurants
@@ -62,7 +62,7 @@ const Body = () => {
                 })}></input>
 
             </div>
-            <div className="restaurant-list flex flex-wrap justify-between rounded-md">
+            <div data-testid="res-list" className="restaurant-list flex flex-wrap justify-between rounded-md">
                 {
                     filteredRestaurants.map((restaurant) => {
                         return <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}><RestaurantCard {...restaurant.info} /></Link>
