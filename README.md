@@ -1,2 +1,2 @@
-# Namaste_React
-Learning React from Namaste React course
+# Foody Moody
+- A food delivery web-app using react.
